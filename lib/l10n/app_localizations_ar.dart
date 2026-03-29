@@ -18,11 +18,24 @@ class AppLocalizationsAr extends AppLocalizations {
   String get arabic => 'العربية';
 
   @override
-  String get theme => 'النمط';
+  String get theme => 'المظهر';
 
   @override
-  String get dark => 'ليلي';
+  String get dark => 'داكن';
 
   @override
-  String get light => 'نهاري';
+  String get light => 'فاتح';
+
+  @override
+  String get logout => 'تسجيل الخروج';
+
+  @override
+  String get personalizeYourExperience => 'خصص تجربتك';
+
+  @override
+  String get chooseYourTheme =>
+      'اختر المظهر واللغة المفضلين لديك لتبدأ بتجربة مريحة ومناسبة لأسلوبك.';
+
+  @override
+  String get letsStart => 'لنبدأ';
 }
