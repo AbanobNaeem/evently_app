@@ -6,10 +6,12 @@ import 'package:evently_app/utils/app_colors.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../shared/app_provider/language_provider.dart';
-import '../../shared/component/buttons_component/app_button_component.dart';
-class OnBoardingBeginScreen extends StatelessWidget {
-   OnBoardingBeginScreen({super.key});
+import '../../../shared/app_provider/language_provider.dart';
+import '../../../shared/component/buttons_component/app_button_component.dart';
+import '../../../shared/component/navigator_component/navigators.dart';
+import '../onboardng_screens/onboarding_screens.dart';
+class OnboardingBeginScreen extends StatelessWidget {
+   OnboardingBeginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +66,9 @@ class OnBoardingBeginScreen extends StatelessWidget {
                     AppButtonComponent(
                       buttonHeightPadding: 0.01,
                       buttonWidthPadding: 0.01,
-                      onButtonTap: (){},
+                      onButtonTap: (){
+                        NavigationService.instance.push(OnboardingScreens());
+                      },
                       buttonColor: AppColors.primaryColor,
                       buttonName: appLocalizations.letsStart,
                       centerText: true,
