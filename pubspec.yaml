@@ -43,6 +43,9 @@ dependencies:
   toggle_switch: ^2.3.0
   shared_preferences: ^2.5.5
   dots_indicator: ^4.0.1
+  firebase_core: ^4.6.0
+  firebase_auth: ^6.3.0
+  google_sign_in: ^7.2.0
 
 
 

@@ -193,6 +193,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.'**
   String get onboardingThirdBody;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @rePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Re Password'**
+  String get rePassword;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgotPassword;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @dontHaveAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t have an account?'**
+  String get dontHaveAnAccount;
+
+  /// No description provided for @createAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get createAccount;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
+
+  /// No description provided for @loginWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Login with Google'**
+  String get loginWithGoogle;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @alreadyHaveAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAnAccount;
+
+  /// No description provided for @pleaseEnterYourEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get pleaseEnterYourEmail;
+
+  /// No description provided for @pleaseEnterYourPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your password'**
+  String get pleaseEnterYourPassword;
+
+  /// No description provided for @pleaseEnterYourRePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please re enter your password'**
+  String get pleaseEnterYourRePassword;
+
+  /// No description provided for @pleaseEnterYourName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your name'**
+  String get pleaseEnterYourName;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @map.
+  ///
+  /// In en, this message translates to:
+  /// **'Map'**
+  String get map;
+
+  /// No description provided for @love.
+  ///
+  /// In en, this message translates to:
+  /// **'love'**
+  String get love;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @sports.
+  ///
+  /// In en, this message translates to:
+  /// **'Sports'**
+  String get sports;
+
+  /// No description provided for @birthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get birthday;
+
+  /// No description provided for @meeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Meeting'**
+  String get meeting;
+
+  /// No description provided for @gaming.
+  ///
+  /// In en, this message translates to:
+  /// **'Gaming'**
+  String get gaming;
+
+  /// No description provided for @workShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Work Shop'**
+  String get workShop;
+
+  /// No description provided for @bookClub.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Club'**
+  String get bookClub;
+
+  /// No description provided for @exhibitions.
+  ///
+  /// In en, this message translates to:
+  /// **'Exhibitions'**
+  String get exhibitions;
+
+  /// No description provided for @holiday.
+  ///
+  /// In en, this message translates to:
+  /// **'Holiday'**
+  String get holiday;
+
+  /// No description provided for @eating.
+  ///
+  /// In en, this message translates to:
+  /// **'Eating'**
+  String get eating;
+
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back ✨'**
+  String get welcomeBack;
 }
 
 class _AppLocalizationsDelegate

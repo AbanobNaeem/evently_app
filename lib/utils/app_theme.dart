@@ -4,6 +4,24 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static final ThemeData appThemeLight = ThemeData(
+    dividerColor: AppColors.backGroundColorLight,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      elevation: 0,
+      backgroundColor: AppColors.primaryColor,
+      shape: StadiumBorder(
+        side: BorderSide(
+          color: AppColors.whiteColor,
+          width: 6
+        )
+      )
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      selectedLabelStyle: AppStyles.bold16white,
+      unselectedLabelStyle: AppStyles.bold16white,
+      backgroundColor: AppColors.primaryColor,
+      selectedItemColor: AppColors.whiteColor,
+      unselectedItemColor: AppColors.whiteColor,
+    ),
     scaffoldBackgroundColor: AppColors.backGroundColorLight,
     primaryColor: AppColors.primaryColor,
     appBarTheme: const AppBarTheme(
@@ -16,6 +34,24 @@ class AppTheme {
   );
 
   static final ThemeData appThemeDark = ThemeData(
+      dividerColor: AppColors.backGroundColorDark,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        elevation: 0,
+          backgroundColor: AppColors.primaryColor,
+          shape: StadiumBorder(
+              side: BorderSide(
+                  color: AppColors.whiteColor,
+                  width: 6
+              )
+          )
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedLabelStyle: AppStyles.bold16white,
+        unselectedLabelStyle: AppStyles.bold16white,
+        backgroundColor: AppColors.primaryColor,
+        selectedItemColor: AppColors.whiteColor,
+        unselectedItemColor: AppColors.whiteColor,
+      ),
     scaffoldBackgroundColor: AppColors.backGroundColorDark,
     primaryColor: AppColors.primaryColor,
     appBarTheme: const AppBarTheme(

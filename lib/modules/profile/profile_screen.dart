@@ -9,8 +9,8 @@ import 'package:provider/provider.dart';
 
 import '../../shared/app_provider/theme_provider.dart';
 
-class ProfileTap extends StatelessWidget {
-  const ProfileTap({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class ProfileTap extends StatelessWidget {
             onButtonTap: (){},
             buttonColor: AppColors.redColor,
             buttonName: AppLocalizations.of(context)!.logout,
-            icon: Icons.logout,
+            leading: Icon(Icons.logout, color: AppColors.whiteColor,size: 30,),
         )
       ],
     );

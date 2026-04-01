@@ -7,15 +7,21 @@ import 'package:evently_app/shared/component/navigator_component/navigators.dart
 import 'package:evently_app/shared/data/local/cash_helper.dart';
 import 'package:evently_app/utils/app_routs.dart';
 import 'package:evently_app/utils/app_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'firebase_options.dart';
 import 'modules/onboarding/first_screen/onboarding_first_screen.dart';
 import 'modules/onboarding/onboardng_screens/onboarding_screens.dart';
+import 'modules/user_authentication/register/register_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(
     MultiProvider(
@@ -46,12 +52,13 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       locale: Locale(appLanguageProvider.appLanguage),
-      initialRoute: AppRouts.onBoardingBeginRoutName,
+      initialRoute: AppRouts.layoutRoutName,
       routes: {
         AppRouts.layoutRoutName: (context) => LayoutScreen(),
         AppRouts.onBoardingBeginRoutName : (context)=>OnboardingBeginScreen(),
         AppRouts.onBoardingScreensRoutName : (context)=> OnboardingScreens(),
         AppRouts.loginScreenRoutName : (context)=> LoginScreen(),
+        AppRouts.registerScreenRoutName : (context)=> RegisterScreen(),
 
       },
       theme: AppTheme.appThemeLight,

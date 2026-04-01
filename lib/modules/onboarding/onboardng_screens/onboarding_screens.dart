@@ -120,7 +120,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                             curve: Curves.easeInOut,
                           );
                         } else {
-                           NavigationService.instance.push(LoginScreen());
+                           NavigationService.instance.pushReplacement(LoginScreen());
                         }
                       }),
                 ],

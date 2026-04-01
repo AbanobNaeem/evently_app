@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_styles.dart';
 
@@ -7,20 +6,20 @@ class AppButtonComponent extends StatelessWidget {
   final VoidCallback onButtonTap;
   final Color buttonColor;
   final String buttonName;
-  final IconData? icon;
+  final Widget? leading; // ← الجديد
   final bool centerText;
+  final bool isOutlined;
   final double buttonHeightPadding;
   final double buttonWidthPadding;
-
-
 
   const AppButtonComponent({
     super.key,
     required this.onButtonTap,
     required this.buttonColor,
     required this.buttonName,
-    this.icon,
+    this.leading,
     this.centerText = false,
+    this.isOutlined = false,
     this.buttonHeightPadding = 0.04,
     this.buttonWidthPadding = 0.04,
   });
@@ -29,6 +28,7 @@ class AppButtonComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: height * buttonHeightPadding,
@@ -37,9 +37,19 @@ class AppButtonComponent extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onButtonTap,
         style: ElevatedButton.styleFrom(
-          backgroundColor: buttonColor,
+          minimumSize: Size(double.infinity, height * 0.07),
+          backgroundColor:
+          isOutlined ? Colors.transparent : buttonColor,
+          shadowColor: Colors.transparent,
+          elevation: isOutlined ? 0 : 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
+            side: isOutlined
+                ? BorderSide(
+              color: buttonColor,
+              width: 2,
+            )
+                : BorderSide.none,
           ),
           padding: EdgeInsets.symmetric(
             horizontal: width * 0.04,
@@ -47,19 +57,19 @@ class AppButtonComponent extends StatelessWidget {
           ),
         ),
         child: Row(
-          mainAxisAlignment: centerText ? MainAxisAlignment.center : MainAxisAlignment.start,
+          mainAxisAlignment: centerText
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.start,
           children: [
-            if (icon != null) ...[
-              Icon(
-                icon,
-                color: AppColors.whiteColor,
-                size: 24,
-              ),
+            if (leading != null) ...[
+              leading!,
               SizedBox(width: width * 0.02),
             ],
             Text(
               buttonName,
-              style: AppStyles.bold20white,
+              style: isOutlined
+                  ? AppStyles.bold20Primary
+                  : AppStyles.bold20white,
             ),
           ],
         ),
