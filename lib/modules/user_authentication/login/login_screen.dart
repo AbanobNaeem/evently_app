@@ -1,3 +1,4 @@
+import 'package:evently_app/layout/layout_screen.dart';
 import 'package:evently_app/modules/user_authentication/register/register_screen.dart';
 import 'package:evently_app/shared/component/buttons_component/app_button_component.dart';
 import 'package:evently_app/shared/component/buttons_component/row_button_component.dart';
@@ -6,8 +7,8 @@ import 'package:evently_app/shared/component/navigator_component/navigators.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../../shared/app_provider/language_provider.dart';
-import '../../../shared/app_provider/login_provider.dart';
+import '../../../shared/app_provider/lang_theme_provider/language_provider.dart';
+import '../../../shared/app_provider/auth_provider/login_provider.dart';
 import '../../../shared/component/buttons_component/switch_component.dart';
 import '../../../shared/component/dvider/dvider.dart';
 import '../../../shared/component/text_form_field/custom_text_form_field.dart';
@@ -48,9 +49,16 @@ class LoginScreen extends StatelessWidget {
                         prefixIcon: Icons.email_rounded,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (value == null || value.trim().isEmpty) {
                             return appLocalizations.pleaseEnterYourEmail;
                           }
+
+                          if (!RegExp(
+                            r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                          ).hasMatch(value.trim())) {
+                            return appLocalizations.pleaseEnterValidEmail;
+                          }
+
                           return null;
                         },
                       ),
@@ -70,6 +78,28 @@ class LoginScreen extends StatelessWidget {
                           if (value == null || value.isEmpty) {
                             return appLocalizations.pleaseEnterYourPassword;
                           }
+
+                          if (value.length < 8) {
+                            return appLocalizations.passwordLength;
+                          }
+
+                          if (!RegExp(r'[A-Z]').hasMatch(value)) {
+                            return appLocalizations.upperCaseLetter;
+                          }
+
+                          if (!RegExp(r'[a-z]').hasMatch(value)) {
+                            return appLocalizations.lowerCaseLetter;
+                          }
+
+                          if (!RegExp(r'[0-9]').hasMatch(value)) {
+                            return appLocalizations.number;
+                          }
+
+                          if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]')
+                              .hasMatch(value)) {
+                            return appLocalizations.specialCharacter;
+                          }
+
                           return null;
                         },
                       ),
@@ -82,7 +112,8 @@ class LoginScreen extends StatelessWidget {
                         buttonWidthPadding: 0.02,
                         centerText: true,
                         onButtonTap: () {
-                          loginProvider.loginWithEmail();
+                          loginProvider.loginWithEmailAndNavigate();
+
                         },
                         buttonColor: AppColors.primaryColor,
                         buttonName: appLocalizations.login,
@@ -107,8 +138,8 @@ class LoginScreen extends StatelessWidget {
                         initialIndex:
                         appLanguageProvider.appLanguage == "en" ? 0 : 1,
                         listOfIcons: [
-                          Image.asset("assets/images/en.png"),
-                          Image.asset("assets/images/ar.png"),
+                          Image.asset(AppAssets.enIcon),
+                          Image.asset(AppAssets.arIcon),
                         ],
                         onTapIndex: (index) {
                           appLanguageProvider.changeAppLanguage(

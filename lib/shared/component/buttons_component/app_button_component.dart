@@ -6,11 +6,12 @@ class AppButtonComponent extends StatelessWidget {
   final VoidCallback onButtonTap;
   final Color buttonColor;
   final String buttonName;
-  final Widget? leading; // ← الجديد
+  final Widget? leading;
   final bool centerText;
   final bool isOutlined;
   final double buttonHeightPadding;
   final double buttonWidthPadding;
+  final bool arrowIcon;
 
   const AppButtonComponent({
     super.key,
@@ -22,6 +23,7 @@ class AppButtonComponent extends StatelessWidget {
     this.isOutlined = false,
     this.buttonHeightPadding = 0.04,
     this.buttonWidthPadding = 0.04,
+    this.arrowIcon = false
   });
 
   @override
@@ -71,6 +73,14 @@ class AppButtonComponent extends StatelessWidget {
                   ? AppStyles.bold20Primary
                   : AppStyles.bold20white,
             ),
+            if (arrowIcon) ...[
+              Spacer(),
+              Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 25,
+                color: AppColors.primaryColor,
+              ),
+            ],
           ],
         ),
       ),

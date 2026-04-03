@@ -4,7 +4,7 @@ import 'package:evently_app/shared/widgets/home_screen_widget/welcome_widget.dar
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
-import '../../shared/app_provider/home_screen_provider.dart';
+import '../../shared/app_provider/home_provider/home_screen_provider.dart';
 import '../../shared/component/buttons_component/categories_tabs_component.dart';
 import '../../utils/app_colors.dart';
 
@@ -40,6 +40,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         WelcomeWidget(userNameAccount: "Abanob Naeem",),
                         UserLocationWidget(userLocation: "Cairo, Egypt",),
+                        SizedBox(height: size.height * 0.01,),
                         CategoriesTabs(
                           tabs: provider.getTabs(appLocalizations),
                           selectedIndex: provider.index,

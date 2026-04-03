@@ -1,12 +1,12 @@
 import 'package:evently_app/l10n/app_localizations.dart';
-import 'package:evently_app/shared/app_provider/theme_provider.dart';
+import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provider.dart';
 import 'package:evently_app/shared/component/buttons_component/switch_component.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../shared/app_provider/language_provider.dart';
+import '../../../shared/app_provider/lang_theme_provider/language_provider.dart';
 import '../../../shared/component/buttons_component/app_button_component.dart';
 import '../../../shared/component/navigator_component/navigators.dart';
 import '../onboardng_screens/onboarding_screens.dart';
@@ -42,8 +42,8 @@ class OnboardingBeginScreen extends StatelessWidget {
                         title: appLocalizations.language,
                         initialIndex: appLanguageProvider.appLanguage == "en" ? 0 : 1,
                         listOfIcons: [
-                          Image.asset("assets/images/en.png"),
-                          Image.asset("assets/images/ar.png"),
+                          Image.asset(AppAssets.enIcon),
+                          Image.asset(AppAssets.arIcon),
                         ],
                         onTapIndex: (index){
                           appLanguageProvider.changeAppLanguage(

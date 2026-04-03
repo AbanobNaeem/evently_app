@@ -4,4 +4,5 @@ class AppRouts {
   static const String onBoardingScreensRoutName = "on_boarding_screens";
   static const String loginScreenRoutName = "login_screen";
   static const String registerScreenRoutName = "register_screen";
+  static const String addEventScreenRoutName = "add_event_screen";
 }

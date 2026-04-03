@@ -45,7 +45,29 @@
   "exhibitions" : "Exhibitions",
   "holiday": "Holiday",
   "eating":"Eating",
-  "welcomeBack":"Welcome Back ✨"
+  "welcomeBack":"Welcome Back ✨",
+  "search":"Search for Event",
+  "createEvent":"Create Event",
+  "title": "Title",
+  "eventTitle": "Event Title",
+  "chooseDate": "Choose Date",
+  "chooseTime": "Choose Time",
+  "description": "Description",
+  "chooseEventLocation": "Choose Event Location",
+  "addEvent": "Add Event",
+  "selectDate": "Select Date",
+  "selectTime": "Select Time",
+  "eventDescription": "Event Description",
+  "eventLocation": "Event Location",
+  "pleaseEnterValidEmail": "Please enter a valid email",
+  "passwordLength": "Password must be at least 8 characters",
+  "upperCaseLetter":"Must contain at least one uppercase letter",
+  "lowerCaseLetter":"Must contain at least one lowercase letter",
+  "number":"Must contain at least one number",
+  "specialCharacter": "Must contain at least one special character",
+  "passwordMatch": "Passwords do not match",
+  "nameLength":"Name must be at least 3 characters",
+  "nameLetter":"Name can only contain letters"
 
 
 

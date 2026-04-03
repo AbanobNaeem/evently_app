@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../data/local/cash_helper.dart';
+import '../../data/local/cash_helper.dart';
 
 class AppLanguageProvider extends ChangeNotifier {
   String appLanguage = CacheHelper.getString("lang") ?? "en";

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../layout/layout_screen.dart';
+import '../../component/navigator_component/navigators.dart';
+import '../../data/local/cash_helper.dart';
+
 class LoginProvider extends ChangeNotifier {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -14,17 +18,26 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<User?> loginWithEmail() async {
-    if (!formKey.currentState!.validate()) return null;
+  Future<void> loginWithEmailAndNavigate() async {
+    if (formKey.currentState == null || !formKey.currentState!.validate()) return;
+
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+      final userCredential = await _auth.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      return userCredential.user;
+
+      final user = userCredential.user;
+
+      if (user != null) {
+        await CacheHelper.setBool('isLoggedIn', true);
+        await CacheHelper.setString('userId', user.uid);
+        NavigationService.instance.pushAndRemoveUntil(LayoutScreen());
+      }
+
     } on FirebaseAuthException catch (e) {
-      debugPrint("Login Error: ${e.message}");
-      return null;
+      ScaffoldMessenger.of(NavigationService.instance.navigatorKey.currentContext!)
+          .showSnackBar(SnackBar(content: Text(e.message ?? "Login failed")));
     }
   }
 

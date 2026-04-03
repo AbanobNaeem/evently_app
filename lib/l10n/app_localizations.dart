@@ -379,6 +379,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome Back ✨'**
   String get welcomeBack;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for Event'**
+  String get search;
+
+  /// No description provided for @createEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Event'**
+  String get createEvent;
+
+  /// No description provided for @title.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get title;
+
+  /// No description provided for @eventTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Title'**
+  String get eventTitle;
+
+  /// No description provided for @chooseDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Date'**
+  String get chooseDate;
+
+  /// No description provided for @chooseTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Time'**
+  String get chooseTime;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @chooseEventLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Event Location'**
+  String get chooseEventLocation;
+
+  /// No description provided for @addEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Event'**
+  String get addEvent;
+
+  /// No description provided for @selectDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Date'**
+  String get selectDate;
+
+  /// No description provided for @selectTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Time'**
+  String get selectTime;
+
+  /// No description provided for @eventDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Description'**
+  String get eventDescription;
+
+  /// No description provided for @eventLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Location'**
+  String get eventLocation;
+
+  /// No description provided for @pleaseEnterValidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get pleaseEnterValidEmail;
+
+  /// No description provided for @passwordLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get passwordLength;
+
+  /// No description provided for @upperCaseLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Must contain at least one uppercase letter'**
+  String get upperCaseLetter;
+
+  /// No description provided for @lowerCaseLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Must contain at least one lowercase letter'**
+  String get lowerCaseLetter;
+
+  /// No description provided for @number.
+  ///
+  /// In en, this message translates to:
+  /// **'Must contain at least one number'**
+  String get number;
+
+  /// No description provided for @specialCharacter.
+  ///
+  /// In en, this message translates to:
+  /// **'Must contain at least one special character'**
+  String get specialCharacter;
+
+  /// No description provided for @passwordMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwordMatch;
+
+  /// No description provided for @nameLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Name must be at least 3 characters'**
+  String get nameLength;
+
+  /// No description provided for @nameLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Name can only contain letters'**
+  String get nameLetter;
 }
 
 class _AppLocalizationsDelegate

@@ -152,4 +152,70 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcomeBack => 'Welcome Back ✨';
+
+  @override
+  String get search => 'Search for Event';
+
+  @override
+  String get createEvent => 'Create Event';
+
+  @override
+  String get title => 'Title';
+
+  @override
+  String get eventTitle => 'Event Title';
+
+  @override
+  String get chooseDate => 'Choose Date';
+
+  @override
+  String get chooseTime => 'Choose Time';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get chooseEventLocation => 'Choose Event Location';
+
+  @override
+  String get addEvent => 'Add Event';
+
+  @override
+  String get selectDate => 'Select Date';
+
+  @override
+  String get selectTime => 'Select Time';
+
+  @override
+  String get eventDescription => 'Event Description';
+
+  @override
+  String get eventLocation => 'Event Location';
+
+  @override
+  String get pleaseEnterValidEmail => 'Please enter a valid email';
+
+  @override
+  String get passwordLength => 'Password must be at least 8 characters';
+
+  @override
+  String get upperCaseLetter => 'Must contain at least one uppercase letter';
+
+  @override
+  String get lowerCaseLetter => 'Must contain at least one lowercase letter';
+
+  @override
+  String get number => 'Must contain at least one number';
+
+  @override
+  String get specialCharacter => 'Must contain at least one special character';
+
+  @override
+  String get passwordMatch => 'Passwords do not match';
+
+  @override
+  String get nameLength => 'Name must be at least 3 characters';
+
+  @override
+  String get nameLetter => 'Name can only contain letters';
 }

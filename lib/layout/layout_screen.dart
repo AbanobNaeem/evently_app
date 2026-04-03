@@ -4,7 +4,9 @@ import 'package:evently_app/modules/love/love_screen.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
+import '../modules/add_event/add_event_screen.dart';
 import '../modules/profile/profile_screen.dart';
+import '../shared/component/navigator_component/navigators.dart';
 
 
 class LayoutScreen extends StatefulWidget {
@@ -28,7 +30,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-          onPressed: (){},
+          onPressed: (){
+            NavigationService.instance.push(AddEventScreen());
+          },
           child: Icon(Icons.add , color: AppColors.whiteColor,size: 35,),
       ),
     bottomNavigationBar: BottomNavigationBar(
