@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../utils/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String hintText;
   final IconData? prefixIcon;
   final String? Function(String?)? validator;
@@ -14,26 +14,20 @@ class CustomTextFormField extends StatelessWidget {
   final IconData? suffixIcon;
   final double height;
   final double width;
-
   final Color iconColor;
-
   final TextStyle? hintStyle;
-
   final TextStyle? searchStyle;
-
   final Color cursorColor;
-
   final TextInputAction? textInputAction;
-
   final Color outlineColor;
-
   final String? titleText;
-
   final int maxLines;
+  final ValueChanged? onChange ;
 
   const CustomTextFormField({
     super.key,
-    required this.controller,
+    this.onChange,
+    this.controller,
     required this.hintText,
     this.prefixIcon,
     this.textInputAction,
@@ -73,6 +67,7 @@ class CustomTextFormField extends StatelessWidget {
           ),
           titleText != null ? SizedBox(height: size.height * 0.01) : SizedBox(),
           TextFormField(
+            onChanged: onChange,
             maxLines: maxLines,
             textInputAction: textInputAction,
             style: searchStyle ?? AppStyles.bold16gray,

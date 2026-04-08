@@ -21,7 +21,6 @@ class HomeScreenProvider extends ChangeNotifier {
     getEventsData();
     getUserData();
   }
-
   int index = 0;
   List<TabItem> getTabs(AppLocalizations appLocalizations) {
     return [
@@ -68,14 +67,36 @@ class HomeScreenProvider extends ChangeNotifier {
     ];
   }
   List<EventModel> events = [] ;
+  List<EventModel> filteredEvents = [] ;
   UserDataModel? userData ;
   bool isLoadingUser = false;
 
 
 
 
-  void changeTapIndex({required int selectedIndex}) {
+  void changeTapIndex({required int selectedIndex, required AppLocalizations appLocalizations}) {
     index = selectedIndex;
+    _filterEvents(appLocalizations);
+    notifyListeners();
+  }
+
+
+  void _filterEvents(AppLocalizations appLocalizations) {
+    if (events.isEmpty) return ;
+    final currentTab = index;
+    if (currentTab == 0 ){
+      filteredEvents = List.of(events) ;
+    }else {
+      final tabTitle = getTabs(appLocalizations)[index].title;
+      filteredEvents = events.where((event) => event.eventName == tabTitle).toList();
+    }
+
+  }
+
+  Future<void> addFavourite(EventModel event) async {
+    final docRef = FirebaseUtils.getUserEventsCollection().doc(event.eventID);
+    event.isFavorite = !event.isFavorite; // toggle
+    await docRef.update({"isFavorite": event.isFavorite});
     notifyListeners();
   }
 
@@ -86,6 +107,7 @@ class HomeScreenProvider extends ChangeNotifier {
       events = snapshot.docs
           .map((doc) => doc.data())
           .toList();
+      filteredEvents = List.of(events);
       notifyListeners();
     } catch (e) {
       print(e.toString());

@@ -30,6 +30,8 @@ class FirebaseUtils {
 
 
 }
+
+
   static Future<void> addToFireStore(EventModel eventModel) async {
     final eventCollection = getUserEventsCollection();
     final docRef = eventCollection.doc();

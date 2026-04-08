@@ -50,13 +50,11 @@ class HomeScreen extends StatelessWidget {
                           "${CacheHelper.getString('userCountry')}"),
                   SizedBox(height: size.height * 0.01),
                   CategoriesTabs(
-                    isPrimaryBackground: appThemeProvider.isLight
-                        ? false
-                        : true,
+                    isPrimaryBackground: appThemeProvider.isLight ? false : true,
                     tabs: provider.getTabs(appLocalizations),
                     selectedIndex: provider.index,
                     onTabSelected: (index) {
-                      provider.changeTapIndex(selectedIndex: index);
+                      provider.changeTapIndex(selectedIndex: index, appLocalizations: appLocalizations);
                     },
                   ),
                 ],
@@ -65,21 +63,26 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         ConditionalBuilder(
-          condition: provider.events.isNotEmpty,
+          condition: provider.filteredEvents.isNotEmpty,
           builder: (context) => Expanded(
             child: ListView.builder(
               padding: EdgeInsets.zero,
-              itemCount: provider.events.length,
+              itemCount: provider.filteredEvents.length,
               itemBuilder: (context, index) {
-                final event = provider.events[index];
-                return EventCard(eventModel: event, onFavTap: () {});
+                final event = provider.filteredEvents[index];
+                return EventCard(
+                  eventModel: event,
+                  onFavTap: () {
+                    provider.addFavourite(event);
+                  },
+                );
               },
             ),
           ),
           fallback: (context) => Expanded(
             child: Center(
               child: Text(
-                "You don't have any events yet",
+                "You don't have any events here yet",
                 style: AppStyles.bold20Primary,
               ),
             ),
