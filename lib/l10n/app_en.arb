@@ -67,7 +67,8 @@
   "specialCharacter": "Must contain at least one special character",
   "passwordMatch": "Passwords do not match",
   "nameLength":"Name must be at least 3 characters",
-  "nameLetter":"Name can only contain letters"
+  "nameLetter":"Name can only contain letters",
+  "resetPassword" : "Reset Password"
 
 
 

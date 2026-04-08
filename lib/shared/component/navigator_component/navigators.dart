@@ -30,6 +30,10 @@ class NavigationService {
     );
   }
 
+  Future<dynamic>? pushNamed(String routeName,{arguments}) {
+    return navigatorKey.currentState?.pushNamed(routeName, arguments: arguments);
+  }
+
   /// Pop
   void pop([dynamic result]) {
     return navigatorKey.currentState?.pop(result);

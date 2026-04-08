@@ -4,8 +4,19 @@ import '../../data/local/cash_helper.dart';
 
 class AppThemeProvider extends ChangeNotifier{
   bool isLight = CacheHelper.getBool("theme") ?? true;
+  String appLanguage = CacheHelper.getString("lang") ?? "en";
 
 
+
+  void changeAppLanguage(String newLanguage) {
+    if (appLanguage == newLanguage){
+      return ;
+    }else {
+      appLanguage = newLanguage;
+      CacheHelper.setString("lang", newLanguage);
+    }
+    notifyListeners();
+  }
 
 
    void changeAppTheme(String newTheme) {
@@ -16,6 +27,6 @@ class AppThemeProvider extends ChangeNotifier{
       isLight = false;
       CacheHelper.setBool("theme", false);
     }
-    notifyListeners(); // لازم تبقى هنا جوا الدالة
+    notifyListeners();
   }
 }

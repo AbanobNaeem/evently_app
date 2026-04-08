@@ -29,5 +29,8 @@ class AppAssets {
   static const String sportsDark = "assets/images/events_images/dark/sport.png";
   static const String workShopDark = "assets/images/events_images/dark/workshop.png";
 
+  static const String forgetPasswordImage = "assets/images/forget_password.png";
+
+
 
 }

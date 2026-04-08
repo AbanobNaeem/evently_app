@@ -34,7 +34,7 @@ class LoveScreen extends StatelessWidget {
               obscureText: false),
           Expanded(child: ListView.separated(
               padding: EdgeInsets.zero,
-              itemBuilder:(context, index) =>  EventCard(),
+              itemBuilder:(context, index) =>  Container(),
               separatorBuilder:(context, index) => SizedBox(height: size.height * 0.01,),
               itemCount: 20)),
         ],

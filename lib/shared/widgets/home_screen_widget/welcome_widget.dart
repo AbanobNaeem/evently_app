@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_styles.dart';
-import '../../app_provider/lang_theme_provider/language_provider.dart';
 import '../../app_provider/lang_theme_provider/theme_provider.dart';
 
 class WelcomeWidget extends StatelessWidget {
@@ -20,9 +19,6 @@ class WelcomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     AppThemeProvider appThemeProvider = Provider.of<AppThemeProvider>(context);
-    AppLanguageProvider appLanguageProvider = Provider.of<AppLanguageProvider>(
-      context,
-    );
     var size = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.only(top: size.height * 0.06),
@@ -52,14 +48,14 @@ class WelcomeWidget extends StatelessWidget {
               SizedBox(width: size.width * 0.02),
               InkWell(
                 onTap: () {
-                  appLanguageProvider.changeAppLanguage(
-                    appLanguageProvider.appLanguage == "en" ? "ar" : "en",
+                  appThemeProvider.changeAppLanguage(
+                    appThemeProvider.appLanguage == "en" ? "ar" : "en",
                   );
                 },
                 child: SquareButton(color: AppColors.whiteColor,
                     child:Text(
-                      appLanguageProvider.appLanguage == "en" ? "EN" : "AR",
-                      style: AppStyles.bold20Primary,
+                      appThemeProvider.appLanguage == "en" ? "EN" : "AR",
+                      style: appThemeProvider.isLight ? AppStyles.bold20Primary : AppStyles.bold20Dark,
                     )) ,
               ),
             ],

@@ -3,15 +3,14 @@ import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provid
 import 'package:evently_app/shared/component/buttons_component/switch_component.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:evently_app/utils/app_colors.dart';
+import 'package:evently_app/utils/app_routs.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../shared/app_provider/lang_theme_provider/language_provider.dart';
 import '../../../shared/component/buttons_component/app_button_component.dart';
 import '../../../shared/component/navigator_component/navigators.dart';
-import '../onboardng_screens/onboarding_screens.dart';
 class OnboardingBeginScreen extends StatelessWidget {
-   OnboardingBeginScreen({super.key});
+  OnboardingBeginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,6 @@ class OnboardingBeginScreen extends StatelessWidget {
     var width = MediaQuery.of(context).size.width ;
     AppLocalizations? appLocalizations = AppLocalizations.of(context) ;
     var appThemeProvider = Provider.of<AppThemeProvider>(context);
-    var appLanguageProvider = Provider.of<AppLanguageProvider>(context);
     return Scaffold(
       body: Padding(
         padding:  EdgeInsets.only(top: height* 0.1),
@@ -40,13 +38,13 @@ class OnboardingBeginScreen extends StatelessWidget {
                       style: appThemeProvider.isLight? AppStyles.bold16Black : AppStyles.bold16white),
                     SwitchComponent(
                         title: appLocalizations.language,
-                        initialIndex: appLanguageProvider.appLanguage == "en" ? 0 : 1,
+                        initialIndex: appThemeProvider.appLanguage == "en" ? 0 : 1,
                         listOfIcons: [
                           Image.asset(AppAssets.enIcon),
                           Image.asset(AppAssets.arIcon),
                         ],
                         onTapIndex: (index){
-                          appLanguageProvider.changeAppLanguage(
+                          appThemeProvider.changeAppLanguage(
                             index == 0 ? "en" : "ar"
                           );
                         }),
@@ -67,7 +65,7 @@ class OnboardingBeginScreen extends StatelessWidget {
                       buttonHeightPadding: 0.01,
                       buttonWidthPadding: 0.01,
                       onButtonTap: (){
-                        NavigationService.instance.push(OnboardingScreens());
+                        NavigationService.instance.pushNamed(AppRouts.onBoardingScreensRoutName);
                       },
                       buttonColor: AppColors.primaryColor,
                       buttonName: appLocalizations.letsStart,

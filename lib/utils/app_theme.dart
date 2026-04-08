@@ -44,7 +44,7 @@ class AppTheme {
       dividerColor: AppColors.backGroundColorDark,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         elevation: 0,
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor: AppColors.backGroundColorDark,
           shape: StadiumBorder(
               side: BorderSide(
                   color: AppColors.whiteColor,
@@ -55,7 +55,7 @@ class AppTheme {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedLabelStyle: AppStyles.bold16white,
         unselectedLabelStyle: AppStyles.bold16white,
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: AppColors.backGroundColorDark,
         selectedItemColor: AppColors.whiteColor,
         unselectedItemColor: AppColors.whiteColor,
       ),

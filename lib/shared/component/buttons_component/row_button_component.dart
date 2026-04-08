@@ -21,7 +21,7 @@ class AuthRedirectRow extends StatelessWidget {
       children: [
         Text(
           titleText,
-          style: AppStyles.bold16Black,
+          style: AppStyles.bold16gray,
         ),
         TextButtonComponent(
           text: actionText,

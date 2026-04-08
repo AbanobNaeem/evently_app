@@ -5,4 +5,6 @@ class AppRouts {
   static const String loginScreenRoutName = "login_screen";
   static const String registerScreenRoutName = "register_screen";
   static const String addEventScreenRoutName = "add_event_screen";
+  static const String pickLocationScreenRoutName = "pick_location_screen";
+  static const String forgetPasswordScreenRoutName = "forget_password_screen";
 }

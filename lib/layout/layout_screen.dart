@@ -1,11 +1,15 @@
 import 'package:evently_app/modules/home/home_screen.dart';
 import 'package:evently_app/modules/location/location_screen.dart';
 import 'package:evently_app/modules/love/love_screen.dart';
+import 'package:evently_app/shared/app_provider/home_provider/home_screen_provider.dart';
 import 'package:evently_app/utils/app_colors.dart';
+import 'package:evently_app/utils/app_routs.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
-import '../modules/add_event/add_event_screen.dart';
 import '../modules/profile/profile_screen.dart';
+import '../shared/app_provider/location_provider/location_provider.dart';
+import '../shared/app_provider/profile_provider/profile_provider.dart';
 import '../shared/component/navigator_component/navigators.dart';
 
 
@@ -17,10 +21,17 @@ class LayoutScreen extends StatefulWidget {
 }
 int  selectedIndex = 0 ;
 List<Widget> appScreens = [
-  HomeScreen(),
-  LocationScreen(),
+  ChangeNotifierProvider(
+    create: (context) => HomeScreenProvider(),
+      child: HomeScreen()),
+  ChangeNotifierProvider(
+    create: (context) => LocationProvider(),
+    child: LocationScreen(),
+  ),
   LoveScreen(),
-  ProfileScreen()
+  ChangeNotifierProvider(
+      create: (context) => ProfileProvider(),
+      child: ProfileScreen()),
 ];
 
 class _LayoutScreenState extends State<LayoutScreen> {
@@ -31,11 +42,11 @@ class _LayoutScreenState extends State<LayoutScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
           onPressed: (){
-            NavigationService.instance.push(AddEventScreen());
+            NavigationService.instance.pushNamed(AppRouts.addEventScreenRoutName,);
           },
           child: Icon(Icons.add , color: AppColors.whiteColor,size: 35,),
       ),
-    bottomNavigationBar: BottomNavigationBar(
+     bottomNavigationBar: BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
      currentIndex: selectedIndex,
      onTap: (index){

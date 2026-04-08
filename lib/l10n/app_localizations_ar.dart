@@ -218,4 +218,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nameLetter => 'Name can only contain letters';
+
+  @override
+  String get resetPassword => 'Reset Password';
 }

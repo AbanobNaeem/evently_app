@@ -1,9 +1,9 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:evently_app/modules/user_authentication/login/login_screen.dart';
 import 'package:evently_app/shared/component/buttons_component/circle_button_component.dart';
 import 'package:evently_app/shared/component/navigator_component/navigators.dart';
 import 'package:evently_app/shared/data/local/cash_helper.dart';
 import 'package:evently_app/utils/app_colors.dart';
+import 'package:evently_app/utils/app_routs.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import '../../../l10n/app_localizations.dart';
@@ -138,7 +138,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
 
   void finishOnboarding() async {
     CacheHelper.setBool("seenOnBoarding", true);
-    NavigationService.instance.pushReplacement(LoginScreen());
+    NavigationService.instance.pushNamed(AppRouts.loginScreenRoutName);
   }
 
   Widget onboardingPage({

@@ -13,15 +13,18 @@ class UserLocationWidget extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Padding(
       padding:  EdgeInsets.only(top: size.height * 0.01),
-      child: Row(
-        children: [
-          const Icon(
-            Icons.location_on_outlined,
-            color: AppColors.whiteColor,
-            size: 30,
-          ),
-          Text(userLocation, style: AppStyles.bold16white),
-        ],
+      child: Visibility(
+        visible: userLocation.isNotEmpty,
+        child: Row(
+          children: [
+            const Icon(
+              Icons.location_on_outlined,
+              color: AppColors.whiteColor,
+              size: 30,
+            ),
+            Text(userLocation, style: AppStyles.bold16white),
+          ],
+        ),
       ),
     );
   }

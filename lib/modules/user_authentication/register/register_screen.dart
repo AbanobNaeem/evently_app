@@ -1,9 +1,9 @@
 import 'package:evently_app/shared/app_provider/auth_provider/register_provider.dart';
+import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provider.dart';
 import 'package:evently_app/shared/component/buttons_component/row_button_component.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../../shared/app_provider/lang_theme_provider/language_provider.dart';
 import '../../../shared/component/buttons_component/app_button_component.dart';
 import '../../../shared/component/buttons_component/switch_component.dart';
 import '../../../shared/component/navigator_component/navigators.dart';
@@ -19,7 +19,7 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size  = MediaQuery.sizeOf(context);
     var appLocalizations = AppLocalizations.of(context)!;
-    var appLanguageProvider = Provider.of<AppLanguageProvider>(context);
+    AppThemeProvider appThemeProvider = Provider.of<AppThemeProvider>(context);
     return ChangeNotifierProvider(
       create: (context) => RegisterProvider(),
       child: Builder(
@@ -170,13 +170,13 @@ class RegisterScreen extends StatelessWidget {
                       ),
                       SwitchComponent(
                         initialIndex:
-                        appLanguageProvider.appLanguage == "en" ? 0 : 1,
+                       appThemeProvider.appLanguage == "en" ? 0 : 1,
                         listOfIcons: [
                           Image.asset(AppAssets.enIcon),
                           Image.asset(AppAssets.arIcon),
                         ],
                         onTapIndex: (index) {
-                          appLanguageProvider.changeAppLanguage(
+                         appThemeProvider.changeAppLanguage(
                               index == 0 ? "en" : "ar");
                         },
                       ),

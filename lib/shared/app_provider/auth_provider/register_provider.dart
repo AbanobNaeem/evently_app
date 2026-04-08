@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evently_app/shared/data/local/cash_helper.dart';
+import 'package:evently_app/utils/collection_name.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../layout/layout_screen.dart';
+import '../../../models/user_data_model.dart';
+import '../../../utils/firebase_utils.dart';
 import '../../component/navigator_component/navigators.dart';
 
 class RegisterProvider extends ChangeNotifier {
@@ -28,11 +31,11 @@ class RegisterProvider extends ChangeNotifier {
     isPasswordHidden = !isPasswordHidden;
     notifyListeners();
   }
-
   void toggleConfirmPasswordVisibility() {
     isConfirmPasswordHidden = !isConfirmPasswordHidden;
     notifyListeners();
   }
+
 
   Future<void> createNewAccount() async {
     if (formKey.currentState!.validate()) {
@@ -43,22 +46,18 @@ class RegisterProvider extends ChangeNotifier {
         );
 
         final user = credential.user;
-
         if (user != null) {
-          final userId = user.uid;
+          UserDataModel userData = UserDataModel(
+            userName: nameController.text.trim(),
+            userEmail: emailController.text.trim(),
 
-          // حفظ بيانات المستخدم في Firestore
-          await FirebaseFirestore.instance.collection('users').doc(userId).set({
-            "userName": nameController.text.trim(),
-            "email": emailController.text.trim(),
-          });
+          );
 
-          // حفظ حالة تسجيل الدخول في CacheHelper
-          await CacheHelper.setBool('isLoggedIn',  true);
-          await CacheHelper.setString('userId', userId);
-
-          // الانتقال للصفحة الرئيسية
-          NavigationService.instance.pushAndRemoveUntil(LayoutScreen());
+          await FirebaseUtils.saveUserData(userData);
+          await CacheHelper.setBool('isLoggedIn', true);
+          NavigationService.instance.pushAndRemoveUntil(
+            LayoutScreen(),
+          );
         }
       } catch (e) {
         print("Register Error: $e");

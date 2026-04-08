@@ -1,6 +1,10 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provider.dart';
 import 'package:evently_app/shared/component/card/event_card.dart';
+import 'package:evently_app/shared/data/local/cash_helper.dart';
 import 'package:evently_app/shared/widgets/home_screen_widget/user_location_widget.dart';
 import 'package:evently_app/shared/widgets/home_screen_widget/welcome_widget.dart';
+import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
@@ -15,54 +19,73 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var appLocalizations = AppLocalizations.of(context)!;
-    return ChangeNotifierProvider(
-      create: (_) => HomeScreenProvider(),
-      child: Builder(
-        builder: (context) {
-          final provider = Provider.of<HomeScreenProvider>(context);
-          return Column(
-            children: [
-              Stack(
+    var provider = Provider.of<HomeScreenProvider>(context);
+    var appThemeProvider = Provider.of<AppThemeProvider>(context);
+    return Column(
+      children: [
+        Stack(
+          children: [
+            Container(
+              height: size.height * 0.25,
+              decoration: BoxDecoration(
+                color: appThemeProvider.isLight
+                    ? AppColors.primaryColor
+                    : AppColors.backGroundColorDark,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+              child: Column(
                 children: [
-                  Container(
-                    height: size.height * 0.25,
-                    decoration: const BoxDecoration(
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(25),
-                        bottomRight: Radius.circular(25),
-                      ),
-                    ),
+                  WelcomeWidget(
+                    userNameAccount: CacheHelper.getString("userName") ?? provider.userData?.userName ?? "null",
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-                    child: Column(
-                      children: [
-                        WelcomeWidget(userNameAccount: "Abanob Naeem",),
-                        UserLocationWidget(userLocation: "Cairo, Egypt",),
-                        SizedBox(height: size.height * 0.01,),
-                        CategoriesTabs(
-                          tabs: provider.getTabs(appLocalizations),
-                          selectedIndex: provider.index,
-                          onTabSelected: (index) {
-                            provider.changeTapIndex(selectedIndex: index);
-                          },
-                        ),
-                      ],
-                    ),
+                  UserLocationWidget(
+                      userLocation: (CacheHelper.getString('userCity')?? "").isEmpty? ""
+                          : "${CacheHelper.getString('userCity')} , "
+                          "${CacheHelper.getString('userCountry')}"),
+                  SizedBox(height: size.height * 0.01),
+                  CategoriesTabs(
+                    isPrimaryBackground: appThemeProvider.isLight
+                        ? false
+                        : true,
+                    tabs: provider.getTabs(appLocalizations),
+                    selectedIndex: provider.index,
+                    onTabSelected: (index) {
+                      provider.changeTapIndex(selectedIndex: index);
+                    },
                   ),
                 ],
               ),
-              SizedBox(height: size.height * 0.02),
-              Expanded(child: ListView.separated(
-                padding: EdgeInsets.zero,
-                  itemBuilder:(context, index) =>  EventCard(),
-                  separatorBuilder:(context, index) => SizedBox(height: size.height * 0.01,),
-                  itemCount: 20))
-            ],
-          );
-        },
-      ),
+            ),
+          ],
+        ),
+        ConditionalBuilder(
+          condition: provider.events.isNotEmpty,
+          builder: (context) => Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.zero,
+              itemCount: provider.events.length,
+              itemBuilder: (context, index) {
+                final event = provider.events[index];
+                return EventCard(eventModel: event, onFavTap: () {});
+              },
+            ),
+          ),
+          fallback: (context) => Expanded(
+            child: Center(
+              child: Text(
+                "You don't have any events yet",
+                style: AppStyles.bold20Primary,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

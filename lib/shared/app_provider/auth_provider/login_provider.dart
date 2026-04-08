@@ -1,3 +1,4 @@
+import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -41,39 +42,46 @@ class LoginProvider extends ChangeNotifier {
     }
   }
 
+   String? validateEmail(String? value, AppLocalizations appLocalizations) {
+      if (value == null || value.trim().isEmpty) {
+        return appLocalizations.pleaseEnterYourEmail;
+      }
 
+      if (!RegExp(
+        r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+      ).hasMatch(value.trim())) {
+        return appLocalizations.pleaseEnterValidEmail;
+      }
 
-  // ----------------------------
-  // Login with Google
-  // ----------------------------
-  // Future<User?> loginWithGoogle() async {
-  //   try {
-  //     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-  //     if (googleUser == null) return null; // user canceled
-  //
-  //     final GoogleSignInAuthentication googleAuth =
-  //     await googleUser.authentication;
-  //
-  //     final credential = GoogleAuthProvider.credential(
-  //       accessToken: googleAuth.accessToken,
-  //       idToken: googleAuth.idToken,
-  //     );
-  //
-  //     UserCredential userCredential =
-  //     await _auth.signInWithCredential(credential);
-  //
-  //     return userCredential.user;
-  //   } on FirebaseAuthException catch (e) {
-  //     debugPrint("Google Login Error: ${e.message}");
-  //     return null;
-  //   }
-  // }
+      return null;
+  }
+   String? validatePassword(String? value , AppLocalizations appLocalizations) {
+      if (value == null || value.isEmpty) {
+        return appLocalizations.pleaseEnterYourPassword;
+      }
 
-  // ----------------------------
-  // Sign Out
-  // ----------------------------
-  // Future<void> signOut() async {
-  //   await _auth.signOut();
-  //   await GoogleSignIn.signOut();
-  // }
+      if (value.length < 8) {
+        return appLocalizations.passwordLength;
+      }
+
+      if (!RegExp(r'[A-Z]').hasMatch(value)) {
+        return appLocalizations.upperCaseLetter;
+      }
+
+      if (!RegExp(r'[a-z]').hasMatch(value)) {
+        return appLocalizations.lowerCaseLetter;
+      }
+
+      if (!RegExp(r'[0-9]').hasMatch(value)) {
+        return appLocalizations.number;
+      }
+
+      if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]')
+          .hasMatch(value)) {
+        return appLocalizations.specialCharacter;
+      }
+
+      return null;
+
+   }
 }
