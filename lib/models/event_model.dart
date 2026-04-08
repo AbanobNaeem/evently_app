@@ -30,7 +30,7 @@ class EventModel {
   EventModel.fromFirestore(Map<String , dynamic>data):this(
      latitude: data["latitude"]?? 0 ,
      longitude: data["longitude"]?? 0,
-     eventLocation: data["eventLocation"] ?? "unknown location",
+     eventLocation: data["eventLocation"] ?? "unknown map",
      eventID: data["eventID"],
      title: data["title"],
      eventName: data["eventName"],

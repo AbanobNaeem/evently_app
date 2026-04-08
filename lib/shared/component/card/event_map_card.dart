@@ -1,9 +1,9 @@
-import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../models/event_model.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_styles.dart';
+import '../../lang_theme_provider/theme_provider.dart';
 
 class EventMapCard extends StatelessWidget {
 

@@ -3,10 +3,11 @@ import 'package:evently_app/shared/component/text_form_field/custom_text_form_fi
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../l10n/app_localizations.dart';
-import '../../shared/app_provider/love_provider/love_provider.dart';
-import '../../shared/component/card/event_card.dart';
-import '../../utils/app_colors.dart';
+
+import '../../../l10n/app_localizations.dart';
+import 'love_provider/love_provider.dart';
+import '../../../shared/component/card/event_card.dart';
+import '../../../utils/app_colors.dart';
 
 class LoveScreen extends StatelessWidget {
   const LoveScreen({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../data/local/cash_helper.dart';
+import '../data/local/cash_helper.dart';
+
 
 class AppThemeProvider extends ChangeNotifier{
   bool isLight = CacheHelper.getBool("theme") ?? true;

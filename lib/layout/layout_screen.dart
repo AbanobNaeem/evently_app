@@ -1,16 +1,16 @@
-import 'package:evently_app/modules/home/home_screen.dart';
-import 'package:evently_app/modules/location/location_screen.dart';
-import 'package:evently_app/modules/love/love_screen.dart';
-import 'package:evently_app/shared/app_provider/home_provider/home_screen_provider.dart';
-import 'package:evently_app/shared/app_provider/love_provider/love_provider.dart';
+import 'package:evently_app/modules/layout_taps/home/home_provider/home_screen_provider.dart';
+import 'package:evently_app/modules/layout_taps/love/love_provider/love_provider.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:evently_app/utils/app_routs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
-import '../modules/profile/profile_screen.dart';
-import '../shared/app_provider/location_provider/location_provider.dart';
-import '../shared/app_provider/profile_provider/profile_provider.dart';
+import '../modules/layout_taps/home/home_screen.dart';
+import '../modules/layout_taps/love/love_screen.dart';
+import '../modules/layout_taps/map/map_screen.dart';
+import '../modules/layout_taps/profile/profile_screen.dart';
+import '../modules/layout_taps/map/map_provider/map_provider.dart';
+import '../modules/layout_taps/profile/profile_provider/profile_provider.dart';
 import '../shared/component/navigator_component/navigators.dart';
 
 

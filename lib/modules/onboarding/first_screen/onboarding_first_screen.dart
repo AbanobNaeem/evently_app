@@ -1,5 +1,4 @@
 import 'package:evently_app/l10n/app_localizations.dart';
-import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provider.dart';
 import 'package:evently_app/shared/component/buttons_component/switch_component.dart';
 import 'package:evently_app/utils/app_assets.dart';
 import 'package:evently_app/utils/app_colors.dart';
@@ -9,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../shared/component/buttons_component/app_button_component.dart';
 import '../../../shared/component/navigator_component/navigators.dart';
+import '../../../shared/lang_theme_provider/theme_provider.dart';
 class OnboardingBeginScreen extends StatelessWidget {
   OnboardingBeginScreen({super.key});
 

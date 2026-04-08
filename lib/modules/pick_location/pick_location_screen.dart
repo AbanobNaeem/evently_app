@@ -1,4 +1,4 @@
-import 'package:evently_app/shared/app_provider/add_event_provider/add_event_provider.dart';
+import 'package:evently_app/modules/add_event/add_event_provider/add_event_provider.dart';
 import 'package:evently_app/shared/component/navigator_component/navigators.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +42,7 @@ class PickLocationScreen extends StatelessWidget {
                   color: AppColors.primaryColor ,
                   child: Text(
                     textAlign: TextAlign.center ,
-                    "Tap on location to select",
+                    "Tap on map to select",
                     style: AppStyles.bold20white,
                   ),
                 )

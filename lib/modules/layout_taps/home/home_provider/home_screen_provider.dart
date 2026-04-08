@@ -1,9 +1,9 @@
 import 'package:evently_app/models/user_data_model.dart';
 import 'package:flutter/material.dart';
-import '../../../l10n/app_localizations.dart';
-import '../../../models/event_model.dart';
-import '../../../utils/firebase_utils.dart';
-import '../../data/local/cash_helper.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../models/event_model.dart';
+import '../../../../utils/firebase_utils.dart';
+import '../../../../shared/data/local/cash_helper.dart';
 
 class TabItem {
   final String title;

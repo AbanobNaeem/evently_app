@@ -1,11 +1,11 @@
-import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provider.dart';
 import 'package:evently_app/shared/component/buttons_component/square_button.dart';
 import 'package:evently_app/shared/component/navigator_component/navigators.dart';
 import 'package:evently_app/utils/app_routs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
-import '../../shared/app_provider/add_event_provider/add_event_provider.dart';
+import '../../shared/lang_theme_provider/theme_provider.dart';
+import 'add_event_provider/add_event_provider.dart';
 import '../../shared/component/buttons_component/app_button_component.dart';
 import '../../shared/component/buttons_component/categories_tabs_component.dart';
 import '../../shared/component/buttons_component/create_event_button.dart';

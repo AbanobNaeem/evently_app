@@ -1,4 +1,4 @@
-import 'package:evently_app/shared/app_provider/auth_provider/forget_password_provider.dart';
+import 'package:evently_app/modules/user_authentication/forget_password/forget_password_provider/forget_password_provider.dart';
 import 'package:evently_app/shared/component/navigator_component/navigators.dart';
 import 'package:evently_app/shared/component/text_form_field/custom_text_form_field.dart';
 import 'package:evently_app/utils/app_styles.dart';

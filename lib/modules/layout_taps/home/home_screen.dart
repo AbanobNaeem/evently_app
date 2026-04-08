@@ -1,5 +1,4 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provider.dart';
 import 'package:evently_app/shared/component/card/event_card.dart';
 import 'package:evently_app/shared/data/local/cash_helper.dart';
 import 'package:evently_app/shared/widgets/home_screen_widget/user_location_widget.dart';
@@ -7,10 +6,12 @@ import 'package:evently_app/shared/widgets/home_screen_widget/welcome_widget.dar
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../l10n/app_localizations.dart';
-import '../../shared/app_provider/home_provider/home_screen_provider.dart';
-import '../../shared/component/buttons_component/categories_tabs_component.dart';
-import '../../utils/app_colors.dart';
+
+import '../../../l10n/app_localizations.dart';
+import '../../../shared/lang_theme_provider/theme_provider.dart';
+import 'home_provider/home_screen_provider.dart';
+import '../../../shared/component/buttons_component/categories_tabs_component.dart';
+import '../../../utils/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -1,5 +1,3 @@
-import 'package:evently_app/modules/user_authentication/register/register_screen.dart';
-import 'package:evently_app/shared/app_provider/lang_theme_provider/theme_provider.dart';
 import 'package:evently_app/shared/component/buttons_component/app_button_component.dart';
 import 'package:evently_app/shared/component/buttons_component/row_button_component.dart';
 import 'package:evently_app/shared/component/buttons_component/text_button_component.dart';
@@ -8,7 +6,8 @@ import 'package:evently_app/utils/app_routs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../../shared/app_provider/auth_provider/login_provider.dart';
+import '../../../shared/lang_theme_provider/theme_provider.dart';
+import 'login_provider/login_provider.dart';
 import '../../../shared/component/buttons_component/switch_component.dart';
 import '../../../shared/component/dvider/dvider.dart';
 import '../../../shared/component/text_form_field/custom_text_form_field.dart';

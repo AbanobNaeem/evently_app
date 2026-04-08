@@ -1,13 +1,14 @@
 import 'package:evently_app/l10n/app_localizations.dart';
-import 'package:evently_app/shared/app_provider/profile_provider/profile_provider.dart';
+import 'package:evently_app/modules/layout_taps/profile/profile_provider/profile_provider.dart';
 import 'package:evently_app/shared/component/buttons_component/app_button_component.dart';
 import 'package:evently_app/shared/component/buttons_component/drop_buttons_component.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../shared/app_provider/lang_theme_provider/theme_provider.dart';
-import '../../shared/data/local/cash_helper.dart';
+import '../../../shared/data/local/cash_helper.dart';
+import '../../../shared/lang_theme_provider/theme_provider.dart';
+
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

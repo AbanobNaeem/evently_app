@@ -2,10 +2,9 @@ import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:evently_app/shared/component/buttons_component/square_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_styles.dart';
-import '../../app_provider/lang_theme_provider/theme_provider.dart';
+import '../../lang_theme_provider/theme_provider.dart';
 
 class WelcomeWidget extends StatelessWidget {
   final String userNameAccount;

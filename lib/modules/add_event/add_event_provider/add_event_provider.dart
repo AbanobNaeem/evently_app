@@ -9,9 +9,8 @@ import 'package:location/location.dart';
 import 'package:provider/provider.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../models/event_model.dart';
+import '../../../shared/lang_theme_provider/theme_provider.dart';
 import '../../../utils/firebase_utils.dart';
-import '../home_provider/home_screen_provider.dart';
-import '../lang_theme_provider/theme_provider.dart';
 
 class EventItem {
   final String title;
@@ -270,8 +269,8 @@ class AddEventProvider extends ChangeNotifier {
           markerId: MarkerId("2") ,
           position: selectedLocation,
           infoWindow: const InfoWindow(
-            title: "event location" ,
-            snippet: "this is new location selected "
+            title: "event map" ,
+            snippet: "this is new map selected "
           )
       )
     );

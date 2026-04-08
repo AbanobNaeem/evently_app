@@ -2,9 +2,9 @@ import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../../layout/layout_screen.dart';
-import '../../component/navigator_component/navigators.dart';
-import '../../data/local/cash_helper.dart';
+import '../../../../layout/layout_screen.dart';
+import '../../../../shared/component/navigator_component/navigators.dart';
+import '../../../../shared/data/local/cash_helper.dart';
 
 class LoginProvider extends ChangeNotifier {
   final TextEditingController emailController = TextEditingController();

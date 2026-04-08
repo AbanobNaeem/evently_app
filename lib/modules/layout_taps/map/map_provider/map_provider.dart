@@ -6,8 +6,8 @@ import 'package:geocoding/geocoding.dart' as geocoding;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
-import '../../../utils/firebase_utils.dart';
-import '../../data/local/cash_helper.dart';
+import '../../../../utils/firebase_utils.dart';
+import '../../../../shared/data/local/cash_helper.dart';
 
 class LocationProvider extends ChangeNotifier {
   LocationProvider() {
@@ -71,7 +71,7 @@ class LocationProvider extends ChangeNotifier {
         await CacheHelper.setString("userCountry", country);
       }
     } catch (e) {
-      print("Error converting location to address: $e");
+      print("Error converting map to address: $e");
     }
     notifyListeners();
   }
