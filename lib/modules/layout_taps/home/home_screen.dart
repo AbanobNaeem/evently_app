@@ -8,10 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../l10n/app_localizations.dart';
-import '../../../shared/lang_theme_provider/theme_provider.dart';
-import 'home_provider/home_screen_provider.dart';
 import '../../../shared/component/buttons_component/categories_tabs_component.dart';
+import '../../../shared/component/navigator_component/navigators.dart';
+import '../../../shared/lang_theme_provider/theme_provider.dart';
+import '../../../shared/providers/home_provider/home_screen_provider.dart';
 import '../../../utils/app_colors.dart';
+import '../../../utils/app_routs.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,6 +24,7 @@ class HomeScreen extends StatelessWidget {
     var appLocalizations = AppLocalizations.of(context)!;
     var provider = Provider.of<HomeScreenProvider>(context);
     var appThemeProvider = Provider.of<AppThemeProvider>(context);
+
     return Column(
       children: [
         Stack(
@@ -43,19 +46,30 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   WelcomeWidget(
-                    userNameAccount: CacheHelper.getString("userName") ?? provider.userData?.userName ?? "null",
+                    userNameAccount:
+                        CacheHelper.getString("userName") ??
+                        provider.userData?.userName ??
+                        "null",
                   ),
                   UserLocationWidget(
-                      userLocation: (CacheHelper.getString('userCity')?? "").isEmpty? ""
-                          : "${CacheHelper.getString('userCity')} , "
-                          "${CacheHelper.getString('userCountry')}"),
+                    userLocation:
+                        (CacheHelper.getString('userCity') ?? "").isEmpty
+                        ? ""
+                        : "${CacheHelper.getString('userCity')} , "
+                              "${CacheHelper.getString('userCountry')}",
+                  ),
                   SizedBox(height: size.height * 0.01),
                   CategoriesTabs(
-                    isPrimaryBackground: appThemeProvider.isLight ? false : true,
+                    isPrimaryBackground: appThemeProvider.isLight
+                        ? false
+                        : true,
                     tabs: provider.getTabs(appLocalizations),
                     selectedIndex: provider.index,
                     onTabSelected: (index) {
-                      provider.changeTapIndex(selectedIndex: index, appLocalizations: appLocalizations);
+                      provider.changeTapIndex(
+                        selectedIndex: index,
+                        appLocalizations: appLocalizations,
+                      );
                     },
                   ),
                 ],
@@ -72,6 +86,15 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final event = provider.filteredEvents[index];
                 return EventCard(
+                  onCardTap: () async {
+                    final result = await NavigationService.instance.pushNamed(
+                      AppRouts.eventDetailsScreenRoutName,
+                      arguments: event,
+                    );
+                    if (result == true) {
+                      provider.getEventsData();
+                    }
+                  },
                   eventModel: event,
                   onFavTap: () {
                     provider.addFavourite(event);

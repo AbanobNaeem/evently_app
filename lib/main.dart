@@ -1,20 +1,23 @@
-import 'package:evently_app/layout/layout_screen.dart';
 import 'package:evently_app/l10n/app_localizations.dart';
+import 'package:evently_app/layout/layout_screen.dart';
 import 'package:evently_app/modules/user_authentication/forget_password/forget_password_screen.dart';
 import 'package:evently_app/modules/user_authentication/login/login_screen.dart';
-import 'package:evently_app/modules/add_event/add_event_provider/add_event_provider.dart';
-import 'package:evently_app/modules/user_authentication/forget_password/forget_password_provider/forget_password_provider.dart';
-import 'package:evently_app/modules/user_authentication/login/login_provider/login_provider.dart';
 import 'package:evently_app/shared/component/navigator_component/navigators.dart';
 import 'package:evently_app/shared/data/local/cash_helper.dart';
 import 'package:evently_app/shared/lang_theme_provider/theme_provider.dart';
+import 'package:evently_app/shared/providers/add_event_provider/add_event_provider.dart';
+import 'package:evently_app/shared/providers/event_details_provider/event_details_provider.dart';
+import 'package:evently_app/shared/providers/forget_password_provider/forget_password_provider.dart';
+import 'package:evently_app/shared/providers/login_provider/login_provider.dart';
 import 'package:evently_app/utils/app_routs.dart';
 import 'package:evently_app/utils/app_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'firebase_options.dart';
 import 'modules/add_event/add_event_screen.dart';
+import 'modules/event_details/event_details_screen.dart';
 import 'modules/onboarding/first_screen/onboarding_first_screen.dart';
 import 'modules/onboarding/onboardng_screens/onboarding_screens.dart';
 import 'modules/pick_location/pick_location_screen.dart';
@@ -66,11 +69,17 @@ class MyApp extends StatelessWidget {
         AppRouts.onBoardingScreensRoutName : (context) => OnboardingScreens(),
         AppRouts.loginScreenRoutName : (context) => ChangeNotifierProvider(create: (context) => LoginProvider() , child : LoginScreen()),
         AppRouts.registerScreenRoutName : (context) => RegisterScreen(),
+        AppRouts.eventDetailsScreenRoutName: (context) =>
+            ChangeNotifierProvider(create: (context) => EventDetailsProvider(),
+                child: EventDetailsScreen()),
         AppRouts.forgetPasswordScreenRoutName : (context) => ChangeNotifierProvider(create: (context) => ForgetPasswordProvider(),child: ForgetPasswordScreen()),
         AppRouts.addEventScreenRoutName : (context) => ChangeNotifierProvider(create: (BuildContext context) => AddEventProvider(), child: AddEventScreen()),
-        AppRouts.pickLocationScreenRoutName : (context){
-          return PickLocationScreen(provider: ModalRoute.of(context)?.settings.arguments as AddEventProvider );
-        },
+        AppRouts.pickLocationScreenRoutName: (context) {
+          return PickLocationScreen(provider: ModalRoute
+              .of(context)
+              ?.settings
+              .arguments as AddEventProvider);
+        }
       },
       theme: AppTheme.appThemeLight,
       darkTheme: AppTheme.appThemeDark,

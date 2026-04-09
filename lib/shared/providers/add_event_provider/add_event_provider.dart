@@ -6,7 +6,7 @@ import 'package:geocoding/geocoding.dart' as geocoding;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:location/location.dart';
-import 'package:provider/provider.dart';
+
 import '../../../l10n/app_localizations.dart';
 import '../../../models/event_model.dart';
 import '../../../shared/lang_theme_provider/theme_provider.dart';
@@ -27,7 +27,6 @@ class EventItem {
 }
 
 class AddEventProvider extends ChangeNotifier {
-
   AddEventProvider(){
     getUserLocation();
   }
@@ -173,6 +172,15 @@ class AddEventProvider extends ChangeNotifier {
     return true;
   }
 
+  bool _validateLocation(BuildContext context) {
+    if (eventLocation == null) {
+      _showSnackBar(context, "Please select event location");
+      return false;
+    }
+
+    return true;
+  }
+
   void _showSnackBar(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
@@ -291,6 +299,7 @@ class AddEventProvider extends ChangeNotifier {
     }
   }
 
+
   Future<void> addEvent({
     required BuildContext context,
     required AppLocalizations appLocalizations,
@@ -298,6 +307,7 @@ class AddEventProvider extends ChangeNotifier {
   }) async {
     if (!formKey.currentState!.validate()) return;
     if (!_validateSelections(context)) return;
+    if (!_validateLocation(context)) return;
     final currentEvent = getTabs(appLocalizations)[index];
     final eventModel = EventModel(
       title: eventTitleController.text.trim(),

@@ -39,6 +39,9 @@ class FirebaseUtils {
     await docRef.set(eventModel);
   }
 
+  static Future<void> deleteEvent(String eventId) async {
+    await getUserEventsCollection().doc(eventId).delete();
+  }
 
   static Future<void> saveUserData(UserDataModel user) async {
     await getUserDataCollection().set(user);

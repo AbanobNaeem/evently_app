@@ -1,6 +1,6 @@
 import 'package:evently_app/l10n/app_localizations.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../layout/layout_screen.dart';
 import '../../../../shared/component/navigator_component/navigators.dart';

@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../l10n/app_localizations.dart';
-import 'love_provider/love_provider.dart';
 import '../../../shared/component/card/event_card.dart';
+import '../../../shared/component/navigator_component/navigators.dart';
+import '../../../shared/providers/love_provider/love_provider.dart';
 import '../../../utils/app_colors.dart';
+import '../../../utils/app_routs.dart';
 
 class LoveScreen extends StatelessWidget {
   const LoveScreen({super.key});
@@ -46,6 +48,15 @@ class LoveScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final event = loveProvider.searchedEvents[index];
                   return EventCard(
+                    onCardTap: () async {
+                      final result = await NavigationService.instance.pushNamed(
+                        AppRouts.eventDetailsScreenRoutName,
+                        arguments: event,
+                      );
+                      if (result == true) {
+                        loveProvider.getFavoriteEvents();
+                      }
+                    },
                     eventModel: event,
                     onFavTap: () {
                       loveProvider.toggleFavorite(event);

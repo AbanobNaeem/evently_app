@@ -1,13 +1,14 @@
-import 'package:evently_app/modules/user_authentication/register/register_provider/register_provider.dart';
 import 'package:evently_app/shared/component/buttons_component/row_button_component.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/component/buttons_component/app_button_component.dart';
 import '../../../shared/component/buttons_component/switch_component.dart';
 import '../../../shared/component/navigator_component/navigators.dart';
 import '../../../shared/component/text_form_field/custom_text_form_field.dart';
 import '../../../shared/lang_theme_provider/theme_provider.dart';
+import '../../../shared/providers/register_provider/register_provider.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_styles.dart';

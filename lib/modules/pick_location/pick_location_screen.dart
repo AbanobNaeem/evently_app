@@ -1,10 +1,11 @@
-import 'package:evently_app/modules/add_event/add_event_provider/add_event_provider.dart';
 import 'package:evently_app/shared/component/navigator_component/navigators.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
+
 import '../../../utils/app_styles.dart';
+import '../../shared/providers/add_event_provider/add_event_provider.dart';
 
 
 class PickLocationScreen extends StatelessWidget {

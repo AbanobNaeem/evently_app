@@ -1,9 +1,10 @@
-import 'package:evently_app/modules/layout_taps/map/map_provider/map_provider.dart';
 import 'package:evently_app/shared/component/card/event_map_card.dart';
 import 'package:evently_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
+
+import '../../../shared/providers/map_provider/map_provider.dart';
 
 
 class LocationScreen extends StatelessWidget {

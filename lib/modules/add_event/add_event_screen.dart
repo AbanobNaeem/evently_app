@@ -3,13 +3,14 @@ import 'package:evently_app/shared/component/navigator_component/navigators.dart
 import 'package:evently_app/utils/app_routs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../l10n/app_localizations.dart';
-import '../../shared/lang_theme_provider/theme_provider.dart';
-import 'add_event_provider/add_event_provider.dart';
 import '../../shared/component/buttons_component/app_button_component.dart';
 import '../../shared/component/buttons_component/categories_tabs_component.dart';
 import '../../shared/component/buttons_component/create_event_button.dart';
 import '../../shared/component/text_form_field/custom_text_form_field.dart';
+import '../../shared/lang_theme_provider/theme_provider.dart';
+import '../../shared/providers/add_event_provider/add_event_provider.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_styles.dart';
 
@@ -133,13 +134,13 @@ class AddEventScreen extends StatelessWidget {
                           centerText: true,
                           buttonColor: AppColors.primaryColor,
                           buttonName: appLocalizations.addEvent,
-                          onButtonTap: () {
-                            provider.addEvent(
-                              context: context,
-                              appLocalizations: appLocalizations,
-                              themeProvider: themeProvider,
-                            );
-                          },
+                            onButtonTap: () {
+                              provider.addEvent(
+                                context: context,
+                                appLocalizations: appLocalizations,
+                                themeProvider: themeProvider,
+                              );
+                            }
                         ),
                       ],
                     ),

@@ -1,11 +1,12 @@
-import 'package:evently_app/modules/user_authentication/forget_password/forget_password_provider/forget_password_provider.dart';
 import 'package:evently_app/shared/component/navigator_component/navigators.dart';
 import 'package:evently_app/shared/component/text_form_field/custom_text_form_field.dart';
 import 'package:evently_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/component/buttons_component/app_button_component.dart';
+import '../../../shared/providers/forget_password_provider/forget_password_provider.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
 
